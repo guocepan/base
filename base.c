@@ -73,11 +73,42 @@ void  main()
 
 }
 
+宏定义、枚举常数、只读变量全用大写字母命名，用下划线分割单词。
+
+定义变量-----》 初始化。定义变量时编译器并不一定清空了
+这块内存，它的值可能是无效的数据
+
+不同类型数据之间的运算要注意精度扩展问题，一般低精度数据将向高精度
+数据扩展
 
 
+//  指针类型占的字节数。 
+
+#include<stdio.h>
+
+void  main()
+{
+	int *p = NULL;
+	int len ,len1= 0;//int 类型占四个字节,也就是说他的变量也是 4个字节。
+	len =sizeof p;//len == 4 ;
+	len1 = sizeof(*p);// len1 ==4 ;
+
+}
 
 
+//数组的字节数；
+#include<stdio.h>
 
+void  main()
+{
+	int p[100] = {0};
+	int len ,len1,len2,len3= 0;//int 类型占四个字节,也就是说他的变量也是 4个字节。
+	len =sizeof p;//len == 400 ;
+	len1 = sizeof(p[1000]);// len1 ==4 ;
+	len2 =sizeof(&p);//4
+	len3 =sizeof(&p[0]);//4
+	
+}
 
 
 
