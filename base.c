@@ -43,7 +43,35 @@ char str1[20],str2[20];
  scanf("%s%s",str1,str2);
 
 
+//全局static 和函数中的 static。
 
+#include<stdio.h>
+
+static int j = 0;
+void funj()
+{
+	j = 0;//每次进来，都会把0 赋值给j;
+	j++;
+	}
+
+void  funi()
+{
+	static int i = 0;//在函数调用的时候，有效期一次，后面不会被定义第二次。
+	int t = 10;//每次都会调用一次。
+	t++;//这个值会被释放掉。
+	i++;//这个值不会被释放，会一直递增。
+}
+void  main()
+{
+	int k = 0;
+	for (k = 0; k <= 10; k++)
+	{
+		funi();
+		funj();
+	}
+
+
+}
 
 
 
