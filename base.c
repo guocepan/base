@@ -111,6 +111,54 @@ void  main()
 }
 
 
+//sizeof关键字，测量数组，变量，指针。
+#include<stdio.h>
+struct Student
+{
+	char name[10];
+	int age;
+};
+
+
+//数组在函数中的字节数
+void  P_arr(int arr[10000])
+{
+	int len[20] = {0};
+	
+	len[1] = sizeof(arr);//4
+	len[2] = sizeof(arr[1000]);//4
+	int *p = arr;
+	len[3]= sizeof(p);//4
+	len[4] = sizeof(*p);//4
+
+}
+//结构体中的字节数
+void P_struct_student(struct Student stu, struct Student stu_arr[10])
+{
+	int len_str[100] = {0};
+	len_str[1] = sizeof(stu);//结构体类型; 16  字节对齐
+	len_str[2] = sizeof(stu_arr);//指针  32位占4个字节。
+	len_str[3] = sizeof(stu_arr[1]);//相当于一个 stu_arr;所以是16
+	len_str[4] = sizeof(len_str);//本体中使用，没有经过传地址。 4*100；
+	len_str[5] = sizeof(len_str[1]);//int 类型的  4；
+
+	int *p = len_str;
+	len_str[6] = sizeof(p);
+	len_str[7] = sizeof(*p);
+
+}
+
+void main()
+{
+	int arr[100] = {0};
+	struct Student stu;
+	stu.age = 10;
+	stu.name[1] = "hello";
+
+	struct Student stu_arr[100] = {0};
+	P_arr(arr);
+	P_struct_student(stu,stu_arr);
+}
 
 
 
