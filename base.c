@@ -145,6 +145,9 @@ void P_struct_student(struct Student stu, struct Student stu_arr[10])
 	int *p = len_str;
 	len_str[6] = sizeof(p);
 	len_str[7] = sizeof(*p);
+	len_str[8] = sizeof(&len_str);//4
+	len_str[9] = sizeof(&len_str[1]);//4
+	len_str[10] = sizeof(&len_str +1);//4
 
 }
 
@@ -161,11 +164,65 @@ void main()
 }
 
 
+/有个结束条件，字符输入 后直接输出到屏幕上。
+  //函数原型：int getchar(void);
+//            int putchar(int c);
+
+#include< stdio.h>
+
+main()
+{
+	int c;
+	c = getchar();//用int型接收。
+	while (c != '.')//确定退出循环标志符。
+	{
+		putchar(c);//
+		c = getchar();
+	}
 
 
 
+}
+/*
+
+输入字符串
+#include <stdio.h>
+
+ char *gets(char *s);
+   
+
+   #include <stdio.h>
+   int fgetc(FILE *stream);
+   char *fgets(char *s, int size, FILE *stream);
+
+  int getc(FILE *stream);
+
+  int getchar(void);
+  int ungetc(int c, FILE *stream);
 
 
+*/
+
+//   申请内存。
+#include <stdlib.h>
+
+       void *malloc(size_t size);
+       void free(void *ptr);
+       void *calloc(size_t nmemb, size_t size);
+       void *realloc(void *ptr, size_t size);
+
+#include <stdlib.h>
+int main()
+{
+	char c[100];
+	char *s = malloc(1000);
+	while (s != '.')
+	{
+		gets(s);
+		printf("%s", s);
+	}
+	return 0;
+}
 
 
 
