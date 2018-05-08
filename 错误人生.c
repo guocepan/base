@@ -20,7 +20,7 @@ void  genhaosign()
 	for(i = 0;i <=100; i++)
 	{
 		sz = (double)(x/g);
-		sp =(double)(x%g); //***这个错误，对数据取模只能是int型。
+		sp =(double)(x%g); //***这个错误，对数据取余只能是int型。
 		s=sz+sp;
 
 		vz = (s+g)/2.0;//整数部分；
