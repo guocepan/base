@@ -95,7 +95,28 @@ strcpy(str,”hello”);//赋值了6个字节，程序崩溃。
 cout<<str;	
 	
 	
+//枚举  声明以及应用；	
+include <stdio.h>
+
+int main()
+{
+	enum JJJ //这个是一个大括号
+	{
+		CUP=10,AAA=20,BBB    //都是整形
+	};
+	enum JJJ j;
+	//CUP =CUP +10;//这个是错的，常量不能拿来当左值；
+	j =CUP;
+
+	j =j +CUP +10;
+	printf("%d \n",j);
+    j =j+AAA;
 	
+	printf("%d \n",j);
+	
+
+return 0;
+}
 	
 	
 	

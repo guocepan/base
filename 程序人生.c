@@ -319,6 +319,233 @@ void alnum()
 
 
 
+//scanf（“%d”,x）；//如果能按照格式输入就会返回1 ，如果不按照格式输入就会得到0；
+
+
+//如果输入的不是数字，scanf()函数将返回0；
+while(num < max && scanf("%d",&columns[num]) ==1 && columns[num] >= 0)
+
+
+
+
+判断数字是偶数； 就是取余是不是为0；
+
+if(num % 2  != 0)
+ 
+
+“  ”双引号，用于定界字符串常量。
+用转义字符可以将他变成正常的符号  \" ;
+
+
+如果一个多字节常量的前面有一个L，那么他就是
+宽字符常量：
+L'X'  L'x'
+当运行时环境支持一种宽字符集时，他就有可能使用它们；
+
+
+
+当一个值被当做字符使用：
+
+val =val -48;
+val =val -\60;
+val =val - '0';  //这个看起来最清晰;
+
+
+枚举类型就是他的值为符号常量，而不是字面值的类型。
+
+
+//声明
+enum  JJJ{CUP,PINT,QUART};
+这种类型的变量按下列方式声明：
+enum JJJ milk_jug,gas_can;
+
+#include <stdio.h>
+
+int main()
+{
+	enum JJJ //这个是一个大括号
+	{
+		CUP=10,AAA=20,BBB    //都是整形
+	};
+	enum JJJ j;
+	
+	j =CUP;
+	printf("%d \n",j);
+    j =j+AAA;
+	
+	printf("%d \n",j);
+	
+
+return 0;
+}
+
+//枚举应用；
+enum Color { red, green, blue };
+Color r = red;
+switch(r)
+{
+    case red  : std::cout << "red\n";   break;
+    case green: std::cout << "green\n"; break;
+    case blue : std::cout << "blue\n";  break;
+}
+
+如果某种特定的枚举变量只使用一个声明，可以合成一句话：
+
+enum  JJJ(CUP,PINT,QUART)JJJ milk_jug,gas_can;
+如果是这种默认的形式，那么就从0开始： 0,1,2；
+
+如果不是默认的：
+enum  JJJ(CUP =8,PINT=16,QUART);
+如果不是显示的这样说明，那么就会默认加1；
+
+
+
+整形的不能保存具有小数点的，浮点型可以，双精度的类型也可以；
+浮点型的家族有：
+float ,double ,long double;
+
+指针，只是地址的另外一个名字罢了；
+
+
+字符串常量：他是一串一NUL字节结尾的0个或者多个字符；
+字符串通常存储在--- 字符数组--- 中
+
+因为NUL字节是用于终结字符串的，所以在字符内部不能有NUL字节
+之所以用NUL作为字符串的终止符号，是因为他不是一个可打印的字符；
+
+字符串常量通常以一对双引号形式书写的：
+“hello”
+“\aWarning!\a”
+"" //虽然是空的的依然有NUL作为终止符号；
+
+
+如果你要修改字符串，就把他存于数组中吧；
+
+但是不能直接将字符串赋值给一个字符数组，因为字符串常量
+的直接值是一个指针，而不是这些字符本身。所以有
+指向字符的指针。
+
+
+声明：
+简单的数组声明：
+int arr[200];//int 类型的arr 有两百个；
+
+
+//声明一个指针并且用一个字符串常量对其初始化；
+char *message = "hello  world";
+
+这个就是吧massage声明为一个指向字符的指针，并且用字符串
+常量中的第一个字符的地址对该指针进行初始化。
+
+但是这个地方让人感觉很让人误解：
+认为“hello  world”赋值给了 *message。但并不是，而是给了message
+
+换句话说应该这样：
+
+char *message;
+message = "hello world";
+
+
+typedef :
+
+char *ptr_to_char;
+
+在前面加上typedef后
+typedef  char *ptr_to_char;
+
+他把 ptr_to_char 作为指向字符的指针类型的新名字；
+
+ptr_to_char   a;//声明a是一个指向字符的指针；
+
+不能将他与  #define 混淆；
+比如：
+#define A  char *;
+A a,b;
+扩展开来就是：
+char *a,b;  //显然，b是字符型；
+
+C允许你顶一个常量：
+int   const  a;
+const int a ;  //这两种中选择一个，并且一直使用下去；
+
+int const *pci;//指向整型常量的指针，可以修改指针的值，
+但是不能修改他指向的值，以为（*pci）是一体的，想要
+拆散他们，只能一个一个攻破；
+
+int *const pci; //这个就有所不同，只有单独一个pci也就是说
+只有他是无敌的，指向不给改变但是，指向的内容可以改变，
+打个比喻，这句话是说，pci说这个房间不能改变，但是里面的主人
+那个婀娜多姿的美女确实可以改变的，随便你们怎么样都行。
+
+但是一般动用了两个警力之后，就明显的不能动了
+再也不能顾此失彼了：
+int  const * const pci;//都给我趴下的意思，别想拿走一样东西；
+
+#define PI  3.1415926
+int const PI = 3.1415927;
+这两个虽然都是定义了一个常量，但是还是有点区别的。
+const定义的常量，只能用于允许使用变量的地方，在数组中就不能使用；
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

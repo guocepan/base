@@ -257,6 +257,54 @@ char str[]="123ikal00ges3!#$";// 这个的最后一个数是 0；‘\0';
 
 
 
+/*
+	冒泡排序：两两比较，然后将大数往前排，达到最后的排序效果
+	判断条件 如果 a[i]<a[j]
+					temp = a[i];
+					a[i]=a[j];
+					a[j] = temp;
+
+
+*/
+
+
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+
+	int arr[]={2,4,6,9,3,5,1,0,8,5,3,7};
+	int len = 0; 	
+	len = sizeof(arr)/sizeof(arr[1]);
+	printf("%d \n",len);
+	int i = 0;
+	int j = 0 ;
+
+	for (i = 0;i < len; i++)
+			for(j = i ; j < len; j ++)
+			{
+					if(arr[i] < arr[j])
+					{
+						int temp = 0;
+						temp = arr[i];
+						arr[i] = arr[j];
+						arr[j] =temp;//没有这句话，相当于把a[i]丢了，就算只保留大的；
+
+					}
+
+			}
+
+	for(i = 0 ; i < len ; i ++)
+			{
+				printf("%d \n",arr[i]);
+
+
+			}
+return 0;
+
+}
+
 
 
 
