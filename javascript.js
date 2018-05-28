@@ -38,7 +38,7 @@ str = "字符串";
 <script type="text/javascript">
 	
 	data_object = new Date();//获取时间，不提供参数，可获得当前时间；
-	date = data_object.toLocaleString();
+	date = data_object.toLocaleString();  
 	alert(date);
 
 	
@@ -53,7 +53,7 @@ alert("警告");
 confirm（"我提示的信息是"）；可以没有参数，就只有按钮；
 
 
- 、、072947324739
+
  
  
 
