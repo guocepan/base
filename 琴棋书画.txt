@@ -1,0 +1,20 @@
+标签：
+<style>:样式，丝带，
+<link>:引用外部文件
+
+属性：
+rel="stylesheet"  外部样式表，丝带虚，样式表。
+type="text/css"  引入文档的类型
+margin-left: 边距      
+
+外部样式表：
+<link rel="stylesheet"  type="text/css"    href="mystyle.css">
+
+内部样式表：
+<style type = "text/css">
+body {background-color:red}
+p{margin-left:20px}
+</style>
+
+内联样式表：
+<p style="color:red">
